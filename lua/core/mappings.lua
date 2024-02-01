@@ -27,7 +27,8 @@ M.general = {
     ["yd"] = { "<cmd> term yarn dev <CR>", "run yarn dev" },
     ["yl"] = { "<cmd> term yarn lint <CR>", "run yarn lint" },
     ["yb"] = { "<cmd> term yarn build <CR>", "run yarn build" },
-
+    ["<leader>3"] = {"<cmd> :vsplit <CR>", "splitting vertically"},
+    ["<leader>4"] = {"<cmd> :split <CR>", "spliting horizontal"},
 
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
@@ -259,6 +260,7 @@ M.nvimtree = {
     ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
   },
 }
+
 
 M.telescope = {
   plugin = true,

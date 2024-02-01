@@ -2,12 +2,10 @@
 -- List of all default plugins & their definitions
 local default_plugins = {
   "nvim-lua/plenary.nvim",
+  "vim-test/vim-test",
+  "kdheepak/lazygit.nvim",
   {
     "elixir-editors/vim-elixir",
-    lazy = false
-  },
-  {
-  "elixir-editors/vim-elixir",
     lazy = false
   },
   {
@@ -213,20 +211,50 @@ local default_plugins = {
 
   {
     "numToStr/Comment.nvim",
-    keys = {
-      { "gcc", mode = "n", desc = "Comment toggle current line" },
-      { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
-      { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-      { "gbc", mode = "n", desc = "Comment toggle current block" },
-      { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-      { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
-    },
+    -- keys = {
+    --   { "gcc", mode = "n", desc = "Comment toggle current line" },
+    --   { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
+    --   { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
+    --   { "gbc", mode = "n", desc = "Comment toggle current block" },
+    --   { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+    --   { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+    -- },
     init = function()
       require("core.utils").load_mappings "comment"
     end,
-    config = function(_, opts)
-      require("Comment").setup(opts)
+    config = function()
+      local prehook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+      require("Comment").setup({
+        padding = true,
+        sticky = true,
+        ignore = "^$",
+        toggler = {
+          line = "gcc",
+          block = "gbc",
+        },
+        opleader = {
+          line = "gc",
+          block = "gb",
+        },
+        extra = {
+          above = "gcO",
+          below = "gco",
+          eol = "gcA",
+        },
+        mappings = {
+          basic = true,
+          extra = true,
+          extended = false,
+        },
+        pre_hook = prehook,
+        post_hook = nil,
+      })
     end,
+    event = "BufReadPre",
+    lazy = false,
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring'
+    }
   },
 
   -- file managing , picker etc
