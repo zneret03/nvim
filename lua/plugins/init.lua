@@ -3,7 +3,6 @@
 local default_plugins = {
   "nvim-lua/plenary.nvim",
   "vim-test/vim-test",
-  "kdheepak/lazygit.nvim",
   {
     "elixir-editors/vim-elixir",
     lazy = false
