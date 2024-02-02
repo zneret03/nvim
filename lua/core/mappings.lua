@@ -23,7 +23,7 @@ M.general = {
     ["<C-j>"] = { "<C-w>j", "Window down" },
     ["<C-k>"] = { "<C-w>k", "Window up" },
 
-    --fugitives
+  --fugitives
     ["yd"] = { "<cmd> term yarn dev <CR>", "run yarn dev" },
     ["yl"] = { "<cmd> term yarn lint <CR>", "run yarn lint" },
     ["yb"] = { "<cmd> term yarn build <CR>", "run yarn build" },
@@ -315,46 +315,20 @@ M.nvterm = {
       "Toggle vertical term",
     },
   },
-
-  n = {
-    -- toggle in normal mode
-    ["<A-i>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
-      "Toggle floating term",
-    },
-
-    ["<A-h>"] = {
-      function()
-        require("nvterm.terminal").toggle "horizontal"
-      end,
-      "Toggle horizontal term",
-    },
-
-    ["<A-v>"] = {
-      function()
-        require("nvterm.terminal").toggle "vertical"
-      end,
-      "Toggle vertical term",
-    },
-
-    -- new
-    ["<leader>h"] = {
-      function()
-        require("nvterm.terminal").new "horizontal"
-      end,
-      "New horizontal term",
-    },
-
-    ["<leader>v"] = {
-      function()
-        require("nvterm.terminal").new "vertical"
-      end,
-      "New vertical term",
-    },
-  },
 }
+
+-- M.toggleterm = {
+--   plugin = true,
+--   t = {
+--     ["<leader>t"] = {
+--       function()
+--         require("toggleterm.terminal").Terminal:new({ direction = "float" }).toggle()
+--         require("toggleterm.terminal").Terminal:new({ cmd = "lazygit", direction = "float" }).toggle()
+--       end,
+--       "lazygit terminal",
+--     },
+--   }
+-- }
 
 M.whichkey = {
   plugin = true,
@@ -400,8 +374,6 @@ M.blankline = {
 
 M.gitsigns = {
   plugin = true,
-  
-
   n = {
     -- Navigation through hunks
     ["]c"] = {

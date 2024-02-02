@@ -20,18 +20,59 @@ local default_plugins = {
     branch = "v2.0",
     lazy = false,
   },
-
   {
-    "NvChad/nvterm",
-    init = function()
-      require("core.utils").load_mappings "nvterm"
-    end,
-    config = function(_, opts)
-      require "base46.term"
-      require("nvterm").setup(opts)
-    end,
+    "akinsho/toggleterm.nvim",
+    cmd = "ToggleTerm",
+    build= ":ToggleTerm",
+    keys = { { "<F4>", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" } },
+    opts = {
+      open_mapping = [[<F4>]],
+      direction = "float",
+      shade_filetypes = {},
+      hide_numbers = true,
+      insert_mappings = true,
+      terminal_mappings = true,
+      start_in_insert = true,
+      close_on_exit = true
+    },
+    config = true
   },
-
+  -- {
+  --   "NvChad/nvterm",
+  --   init = function()
+  --     require("core.utils").load_mappings "nvterm"
+  --   end,
+  --   config = function()
+  --     require "base46.term"
+  --     require("nvterm").setup({
+  --         terminals = {
+  --         shell = vim.o.shell,
+  --         list = {},
+  --         type_opts = {
+  --           float = {
+  --             relative = 'editor',
+  --             row = 1,
+  --             col = 0.25,
+  --             width = 1,
+  --             height = 0.9,
+  --             border = "single",
+  --           },
+  --           horizontal = { location = "rightbelowlow", split_ratio = .3, },
+  --           vertical = { location = "rightbelow", split_ratio = .5 },
+  --         }
+  --       },
+  --       behavior = {
+  --         autoclose_on_quit = {
+  --           enabled = false,
+  --           confirm = true,
+  --         },
+  --         close_on_exit = true,
+  --         auto_insert = true,
+  --       },
+  --     })
+  --   end,
+  --   lazy = false
+  -- },
   {
     "NvChad/nvim-colorizer.lua",
     init = function()
@@ -57,9 +98,9 @@ local default_plugins = {
       require("nvim-web-devicons").setup(opts)
     end,
   },
+
   {
   "neovim/nvim-lspconfig",
-
    dependencies = {
      "jose-elias-alvarez/null-ls.nvim",
      config = function()
@@ -71,6 +112,7 @@ local default_plugins = {
       require "custom.configs.lspconfig"
    end,
   },
+
   {
     "lukas-reineke/indent-blankline.nvim",
     version = "2.20.7",
