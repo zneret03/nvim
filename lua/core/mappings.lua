@@ -289,34 +289,6 @@ M.telescope = {
   },
 }
 
-M.nvterm = {
-  plugin = true,
-
-  t = {
-    -- toggle in terminal mode
-    ["<A-i>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
-      "Toggle floating term",
-    },
-
-    ["<A-h>"] = {
-      function()
-        require("nvterm.terminal").toggle "horizontal"
-      end,
-      "Toggle horizontal term",
-    },
-
-    ["<A-v>"] = {
-      function()
-        require("nvterm.terminal").toggle "vertical"
-      end,
-      "Toggle vertical term",
-    },
-  },
-}
-
 M.whichkey = {
   plugin = true,
 
