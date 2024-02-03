@@ -1,5 +1,4 @@
 -- n, v, i, t = mode names
-
 local M = {}
 
 M.general = {
@@ -29,6 +28,8 @@ M.general = {
     ["yb"] = { "<cmd> term yarn build <CR>", "run yarn build" },
     ["<leader>3"] = {"<cmd> :vsplit <CR>", "splitting vertically"},
     ["<leader>4"] = {"<cmd> :split <CR>", "spliting horizontal"},
+  --lazygit mappings
+    ["<F5>"] = { "<cmd> lua _LAZYGIT_TOGGLE() <cr>", "Toggle Lazygit" },
 
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
@@ -261,7 +262,6 @@ M.nvimtree = {
   },
 }
 
-
 M.telescope = {
   plugin = true,
 
@@ -316,19 +316,6 @@ M.nvterm = {
     },
   },
 }
-
--- M.toggleterm = {
---   plugin = true,
---   t = {
---     ["<leader>t"] = {
---       function()
---         require("toggleterm.terminal").Terminal:new({ direction = "float" }).toggle()
---         require("toggleterm.terminal").Terminal:new({ cmd = "lazygit", direction = "float" }).toggle()
---       end,
---       "lazygit terminal",
---     },
---   }
--- }
 
 M.whichkey = {
   plugin = true,
