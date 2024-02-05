@@ -208,52 +208,19 @@ local default_plugins = {
 
   {
     "numToStr/Comment.nvim",
-    -- keys = {
-    --   { "gcc", mode = "n", desc = "Comment toggle current line" },
-    --   { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
-    --   { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-    --   { "gbc", mode = "n", desc = "Comment toggle current block" },
-    --   { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-    --   { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
-    -- },
-    init = function()
-      require("core.utils").load_mappings "comment"
-    end,
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local prehook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
-      require("Comment").setup({
-        padding = true,
-        sticky = true,
-        ignore = "^$",
-        toggler = {
-          line = "gcc",
-          block = "gbc",
-        },
-        opleader = {
-          line = "gc",
-          block = "gb",
-        },
-        extra = {
-          above = "gcO",
-          below = "gco",
-          eol = "gcA",
-        },
-        mappings = {
-          basic = true,
-          extra = true,
-          extended = false,
-        },
-        pre_hook = prehook,
-        post_hook = nil,
-      })
+      require('plugins.configs.comment')
     end,
-    event = "BufReadPre",
-    lazy = false,
-    dependencies = {
-      'JoosepAlviste/nvim-ts-context-commentstring'
-    }
+    lazy = false
   },
 
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    opts = {
+      enable_autocmd = false
+    }
+  },
   -- file managing , picker etc
   {
     "nvim-tree/nvim-tree.lua",
@@ -269,7 +236,6 @@ local default_plugins = {
       require("nvim-tree").setup(opts)
     end,
   },
-
   {
     "nvim-telescope/telescope.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
@@ -294,7 +260,7 @@ local default_plugins = {
   {
   "nvim-telescope/telescope.nvim",
     dependencies = {
-    { 
+    {
         "nvim-telescope/telescope-live-grep-args.nvim" ,
         -- This will not install any breaking changes.
         -- For major updates, this must be adjusted manually.
