@@ -2,7 +2,6 @@
 -- List of all default plugins & their definitions
 local default_plugins = {
   "nvim-lua/plenary.nvim",
-  "vim-test/vim-test",
   {
     "elixir-editors/vim-elixir",
     lazy = false
@@ -14,7 +13,6 @@ local default_plugins = {
       require("base46").load_all_highlights()
     end,
   },
-
   {
     "NvChad/ui",
     branch = "v2.0",
