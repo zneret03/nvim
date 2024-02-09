@@ -25,7 +25,7 @@ M.general = {
   --fugitives
     ["yd"] = { "<cmd> term yarn dev <CR>", "run yarn dev" },
     ["yl"] = { "<cmd> term yarn lint <CR>", "run yarn lint" },
-    ["yb"] = { "<cmd> term yarn build <CR>", "run yarn build" },
+    ["yb"] = { "<cmd> TermExec cmd='yarn build' size=70 direction=vertical name=test<<CR>", "run yarn build" },
     ["yt"] = { "<cmd> TermExec cmd='yarn test %' size=70 direction=vertical name=test<cr>", "run yarn test" },
     ["<leader>3"] = {"<cmd> :vsplit <CR>", "splitting vertically"},
     ["<leader>4"] = {"<cmd> :split <CR>", "spliting horizontal"},
