@@ -41,7 +41,6 @@ local default_plugins = {
       end, 0)
     end,
   },
-
   {
     "nvim-tree/nvim-web-devicons",
     opts = function()
@@ -52,7 +51,6 @@ local default_plugins = {
       require("nvim-web-devicons").setup(opts)
     end,
   },
-
   {
   "neovim/nvim-lspconfig",
    dependencies = {
@@ -82,8 +80,7 @@ local default_plugins = {
       require("indent_blankline").setup(opts)
     end,
   },
-
- {
+  {
     "nvim-treesitter/nvim-treesitter",
     init = function()
       require("core.utils").lazy_load "nvim-treesitter"
