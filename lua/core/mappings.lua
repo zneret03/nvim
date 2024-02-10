@@ -29,6 +29,7 @@ M.general = {
     ["yt"] = { "<cmd> TermExec cmd='yarn test %' size=70 direction=vertical name=test<cr>", "run yarn test" },
     ["<leader>3"] = {"<cmd> :vsplit <CR>", "splitting vertically"},
     ["<leader>4"] = {"<cmd> :split <CR>", "spliting horizontal"},
+
   --lazygit mappings
     ["<F5>"] = { "<cmd> lua _LAZYGIT_TOGGLE() <cr>", "Toggle Lazygit" },
 
