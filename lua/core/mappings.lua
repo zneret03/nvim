@@ -26,10 +26,10 @@ M.general = {
     ["yd"] = { "<cmd> term yarn dev <CR>", "run yarn dev" },
     ["yl"] = { "<cmd> term yarn lint <CR>", "run yarn lint" },
     ["yb"] = { "<cmd> TermExec cmd='yarn build' size=70 direction=vertical name=test<<CR>", "run yarn build" },
-    ["yt"] = { "<cmd> TermExec cmd='yarn test %' size=70 direction=vertical name=test<cr>", "run yarn test" },
+    ["yt"] = { "<cmd> TermExec cmd='yarn test %' size=100 direction=vertical name=test<cr>", "run yarn test" },
     ["<leader>3"] = {"<cmd> :vsplit <CR>", "splitting vertically"},
     ["<leader>4"] = {"<cmd> :split <CR>", "spliting horizontal"},
-
+    ["<C-t>"] = {"<cmd> :ToggleTermToggleAll! <CR>", "quit terminals"},
   --lazygit mappings
     ["<F5>"] = { "<cmd> lua _LAZYGIT_TOGGLE() <cr>", "Toggle Lazygit" },
 
