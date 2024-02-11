@@ -205,16 +205,18 @@ local default_plugins = {
     "numToStr/Comment.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require('plugins.configs.comment')
+      require('Comment').setup {
+        pre_hook = function()
+          return vim.bo.commentstring
+        end
+      }
+      -- require('plugins.configs.comment')
     end,
-    lazy = false
-  },
-
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    opts = {
-      enable_autocmd = false
-    }
+    lazy = false,
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      "nvim-treesitter/nvim-treesitter"
+    },
   },
   -- file managing , picker etc
   {

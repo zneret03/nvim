@@ -1,5 +1,11 @@
 local options = {
-  ensure_installed = { "lua" },
+  ensure_installed = {
+    "lua",
+    "javascript",
+    "typescript",
+    "vim",
+    "json"
+  },
 
   highlight = {
     enable = true,
@@ -23,6 +29,10 @@ local options = {
         jsx_fragment = '{/* %s */}',
         jsx_attribute = '// %s',
         comment = '// %s',
+        __parent = {
+          -- if a node has this as the parent, use the `//` commentstring
+          jsx_expression = '// %s',
+        },
       },
       typescript = { __default = '// %s', __multiline = '/* %s */' }
     }
