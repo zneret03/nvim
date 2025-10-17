@@ -11,6 +11,3 @@ sudo apt install curl
 ```
 3. sync the neovim by using `:Lazy sync`
 4. update nvim-treesitter by using `TSUpdate`
-```
-```
-```
