@@ -3,7 +3,7 @@
 A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
 
-1. Clone Lazy this
+1. Clone neovim setup by getting the SSH link above
 2. for debian distro install curl by adding 
 ```
 sudo apt update
