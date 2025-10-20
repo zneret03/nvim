@@ -10,7 +10,7 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 sudo apt update
 sudo apt install curl
 sudo apt install build-essentials
-
+sudo apt install ripgrep
 // to update neovim to latest 0.11
  curl -sL https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz | sudo tar -xzf - --strip-components=1 --overwrite -C /usr
 ```
